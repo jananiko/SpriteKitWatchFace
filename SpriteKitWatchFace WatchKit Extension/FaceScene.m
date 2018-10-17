@@ -86,19 +86,19 @@ CGFloat workingRadiusForFaceOfSizeWithAngle(CGSize faceSize, CGFloat angle)
 
 		self.theme = [[NSUserDefaults standardUserDefaults] integerForKey:@"Theme"];
 		self.useBackgroundImageOverlay = NO;
-		self.faceStyle = FaceStyleRound;
+		self.faceStyle = FaceStyleRectangular;
 		self.numeralStyle = NumeralStyleAll;
 		self.tickmarkStyle = TickmarkStyleAll;
-		self.majorTickmarkShape = TickmarkShapeRectangular;
-		self.minorTickmarkShape = TickmarkShapeRectangular;
+		self.majorTickmarkShape = TickmarkShapeTriangular;
+		self.minorTickmarkShape = TickmarkShapeTriangular;
 		
 		self.majorTickHeight = 6;
 		self.majorTickWidth = 2;
 
-		self.colorRegionStyle = ColorRegionStyleDynamicDuo;
+		self.colorRegionStyle = ColorRegionStyleCircle;
 		
 		self.dateStyle = DateStyleDayDate;
-		self.dateQuadrant = DateQuadrantRight;
+		self.dateQuadrant = DateQuadrantBottom;
 
 		self.monogram = @""; // e.g. 
 		
@@ -504,7 +504,7 @@ CGFloat workingRadiusForFaceOfSizeWithAngle(CGSize faceSize, CGFloat angle)
 		else if (self.dateQuadrant == DateQuadrantTop)
 			numberLabel.position = CGPointMake(0, (36+numeralDelta));
 		else if (self.dateQuadrant == DateQuadrantBottom)
-			numberLabel.position = CGPointMake(0, -(44+numeralDelta));
+			numberLabel.position = CGPointMake(0, -(66+numeralDelta));
 
 		[faceMarkings addChild:numberLabel];
 	}
@@ -1010,7 +1010,7 @@ CGFloat workingRadiusForFaceOfSizeWithAngle(CGSize faceSize, CGFloat angle)
 		colorRegion.texture = [SKTexture textureWithImageNamed:@"ColorRegionCircle"];
 		colorRegion.anchorPoint = CGPointMake(0.5, 0.5);
 		colorRegion.position = CGPointZero;
-		colorRegion.size = CGSizeMake(179*colorRegionScale, 179*colorRegionScale);
+		colorRegion.size = CGSizeMake(200*colorRegionScale, 200*colorRegionScale);
 		
 		colorRegionReflection.texture = [SKTexture textureWithImageNamed:@"ColorRegionCircleReflection"];
 		colorRegionReflection.anchorPoint = CGPointMake(0.5, 0.5);
